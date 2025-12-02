@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório De Alunos</title>
+
+</head>
+<body>
+
+    <%- include("../partials/cabecalho.ejs")%>
+    <div class="container">
+
+    <% if (status=="1") { %>
+
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        Cadastrado com <b>sucesso.</b>
+        </div>
+           
+<%}%>
+
+
+    <% if (status=="2") { %>
+
+    <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    Removido com <b>sucesso.</b>
+    </div>
+       
+    <%}%>
+
+
+<a href="../alunos/cadastrar" class=" btn btn-info">Cadastro dos novos alunos</a>
+<br><br>
+  
+ 
+    <h2>Relatório de Alunos</h2>
+
+    <table class="table table-striped">
+
+        <tr>
+
+            <th> Matrícula </th>
+            <th> Nome  </th>
+            <th> curso</th>
+            <th> detalhar</th>
+            <th> Atualizar</th>
+            <th> Excluir</th>
+
+        </tr>
+
+   
+
+
+    <% alunos.forEach(aluno => {%>
+
+        <tr> 
+            <td><%= aluno.matricula %></td>
+            <td><%= aluno.nome %></td>
+            <td><%= aluno.curso %></td>
+            <td><a href="/alunos/<%=aluno.matricula %> " class="btn btn-info">Detalhar</a></td>
+            <td><a href="/alunos/atualizar/<%=aluno.matricula %>" class="btn btn-warning">Atualizar</a></td>
+            <td><a href="/alunos/excluir/<%=aluno.matricula %> " class="btn btn-danger" onclick="return confirm('deseja realmente excluir esse discente?')">Excluir</a></td>
+            <
+
+
+        <%});%>   
+    </table>
+
+            <br><br>
+
+
+            <a href="/" class="btn btn-primary" style="width :300px">Voltar</a>
+
+        </div>
+    
+
+    <%-include("../partials/rodape.ejs")%>
+
+
+
+</body>
+</html>

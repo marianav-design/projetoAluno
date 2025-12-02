@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("../partials/cabecalho.ejs")%>
+
+    <div class="container">
+
+        
+        <h1> <%= usuario._id ? "atualizar" : " Cadastrar " %> Usuário </h1>
+    
+    
+    <form action="<%= usuario._id ? "/usuario/atualizar" : "/usuario" %>" method="post">
+    <input type="hidden" name="_id" value="<%=usuario._id%>">
+
+
+        <div>
+            <label class="form-label">E-mail:</label> 
+            <input class="form-control" type="email" name="email" required value="<%=usuario.email%>">
+        </div>
+
+        <div>
+            <label class="form-label">Nome:</label>
+            <input class="form-control" type="text" name="nome" required value="<%=usuario.nome%>">
+        </div>
+
+        <div>
+            <label class="form-label">senha:</label>
+            <input class="form-control" type="password" name="senha" required >
+        </div><br>
+        <div>
+
+            <button type="submit" class="btn btn-success">Salvar</button>
+
+            <a  href="/usuario/login" class="btn btn-ptimary">Já possui conta?</a>
+        </div>

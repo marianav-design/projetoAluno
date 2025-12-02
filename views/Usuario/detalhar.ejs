@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("../partials/cabecalho.ejs")%>
+    <div class="container">
+    <% if(usuario){%>
+        <div>
+        <b> E-mail:</b><%=usuario.email%>
+        </div>
+        
+        <div>
+        <b> Nome:</b><%=usuario.nome%>
+        </div>
+
+        
+
+        <%} else {%>
+        <H2 style="color:red">não encontrado!!</H2>
+        <%}%>
+        <h2>
+            <a href="/Usuario" class="btn btn-secondary">Voltar</a>
+        </h2>
+
+    </div>
+
+    <%-include("../partials/rodape.ejs")%>
+
+
+</body>
+</html>
